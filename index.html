@@ -13,6 +13,7 @@
       align-items: center;
       height: 100vh;
       flex-direction: column;
+      text-align: center;
     }
 
     h1 {
@@ -43,7 +44,6 @@
       margin-top: 20px;
       color: #0f0;
       display: none;
-      text-align: center;
     }
   </style>
 </head>
@@ -51,13 +51,14 @@
 
   <h1>FrutaXchang - Denúncias</h1>
 
-  <form id="formularioDenuncia" action="https://formsubmit.co/chatgpt2025atualizado@gmail.com" method="POST">
+  <form action="https://formsubmit.co/chatgpt2025atualizado@gmail.com" method="POST">
     <input type="text" name="nome" placeholder="Nome do denunciado" required>
     <input type="text" name="numero" placeholder="Número de telefone" required>
     <textarea name="motivo" placeholder="Motivo da denúncia" required></textarea>
 
-    <!-- Evita redirecionar para outra página -->
-    <input type="hidden" name="_redirect" value="javascript:void(0);">
+    <!-- Redireciona para a mesma página com #ok -->
+    <input type="hidden" name="_next" value="https://rafael123.github.io/frutaxchang/#ok">
+
     <button type="submit">Denunciar</button>
   </form>
 
@@ -66,13 +67,10 @@
   </div>
 
   <script>
-    const formulario = document.getElementById('formularioDenuncia');
-    const mensagem = document.getElementById('mensagemObrigado');
-
-    formulario.addEventListener('submit', function() {
-      formulario.style.display = 'none'; // esconde o formulário
-      mensagem.style.display = 'block';  // mostra a mensagem
-    });
+    // Verifica se a URL tem #ok no final
+    if (window.location.hash === "#ok") {
+      document.getElementById("mensagemObrigado").style.display = "block";
+    }
   </script>
 
 </body>
