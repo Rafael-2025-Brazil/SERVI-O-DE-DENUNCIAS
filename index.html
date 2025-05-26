@@ -1,30 +1,77 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>FrutaXchang - Denúncia</title>
-  <link rel="stylesheet" href="style.css">
+  <title>FrutaXchang - Denúncias</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    h1 {
+      color: #0f0;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      gap: 10px;
+    }
+
+    input, textarea, button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #0f0;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .agradecimento {
+      margin-top: 20px;
+      color: #0f0;
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <div class="form-box">
-    <h1>Denúncia - Grupo FrutaXchang</h1>
-    <p>Use este formulário para denunciar comportamentos inadequados no grupo de WhatsApp.</p>
 
-    <form action="https://formsubmit.co/chatgpt2025atualizado@gmail.com" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://rafael.github.io/frutaxchang/obrigado.html">
+  <h1>FrutaXchang - Denúncias</h1>
 
-      <label>Nome do denunciado:</label>
-      <input type="text" name="nome" placeholder="Ex: João da Silva" required>
+  <form id="formularioDenuncia">
+    <input type="text" name="nome" placeholder="Nome do denunciado" required>
+    <input type="text" name="numero" placeholder="Número de telefone" required>
+    <textarea name="motivo" placeholder="Motivo da denúncia" required></textarea>
+    <button type="submit">Denunciar</button>
+  </form>
 
-      <label>Número do denunciado:</label>
-      <input type="text" name="numero" placeholder="Ex: +55 11 91234-5678" required>
-
-      <label>Motivo da denúncia:</label>
-      <textarea name="motivo" placeholder="Descreva o que aconteceu..." required></textarea>
-
-      <button type="submit">Denunciar</button>
-    </form>
+  <div class="agradecimento" id="mensagemObrigado">
+    ✅ Obrigado por enviar sua denúncia. Vamos analisar o ocorrido.
   </div>
+
+  <script>
+    const formulario = document.getElementById('formularioDenuncia');
+    const mensagem = document.getElementById('mensagemObrigado');
+
+    formulario.addEventListener('submit', function(event) {
+      event.preventDefault(); // impede envio padrão
+      // Aqui você pode colocar o envio com FormSubmit ou outro serviço
+      formulario.style.display = 'none'; // esconde o formulário
+      mensagem.style.display = 'block';  // mostra a mensagem
+    });
+  </script>
+
 </body>
 </html>
