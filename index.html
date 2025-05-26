@@ -39,12 +39,6 @@
       font-weight: bold;
       cursor: pointer;
     }
-
-    .agradecimento {
-      margin-top: 20px;
-      color: #0f0;
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -56,22 +50,11 @@
     <input type="text" name="numero" placeholder="Número de telefone" required>
     <textarea name="motivo" placeholder="Motivo da denúncia" required></textarea>
 
-    <!-- Redireciona para a mesma página com #ok -->
-    <input type="hidden" name="_next" value="https://rafael123.github.io/frutaxchang/#ok">
+    <!-- Redireciona para a página "obrigado.html" -->
+    <input type="hidden" name="_next" value="https://rafael123.github.io/frutaxchang/obrigado.html">
 
     <button type="submit">Denunciar</button>
   </form>
-
-  <div class="agradecimento" id="mensagemObrigado">
-    ✅ Obrigado por enviar sua denúncia. Vamos analisar o ocorrido.
-  </div>
-
-  <script>
-    // Verifica se a URL tem #ok no final
-    if (window.location.hash === "#ok") {
-      document.getElementById("mensagemObrigado").style.display = "block";
-    }
-  </script>
 
 </body>
 </html>
