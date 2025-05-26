@@ -43,6 +43,7 @@
       margin-top: 20px;
       color: #0f0;
       display: none;
+      text-align: center;
     }
   </style>
 </head>
@@ -50,10 +51,13 @@
 
   <h1>FrutaXchang - Denúncias</h1>
 
-  <form id="formularioDenuncia">
+  <form id="formularioDenuncia" action="https://formsubmit.co/chatgpt2025atualizado@gmail.com" method="POST">
     <input type="text" name="nome" placeholder="Nome do denunciado" required>
     <input type="text" name="numero" placeholder="Número de telefone" required>
     <textarea name="motivo" placeholder="Motivo da denúncia" required></textarea>
+
+    <!-- Evita redirecionar para outra página -->
+    <input type="hidden" name="_redirect" value="javascript:void(0);">
     <button type="submit">Denunciar</button>
   </form>
 
@@ -65,9 +69,7 @@
     const formulario = document.getElementById('formularioDenuncia');
     const mensagem = document.getElementById('mensagemObrigado');
 
-    formulario.addEventListener('submit', function(event) {
-      event.preventDefault(); // impede envio padrão
-      // Aqui você pode colocar o envio com FormSubmit ou outro serviço
+    formulario.addEventListener('submit', function() {
       formulario.style.display = 'none'; // esconde o formulário
       mensagem.style.display = 'block';  // mostra a mensagem
     });
